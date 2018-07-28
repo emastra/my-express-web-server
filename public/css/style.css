@@ -1,0 +1,234 @@
+/* GLOBALS */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body, #layout {
+  height: 100%;
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Condensed Light'), local('OpenSansCondensed-Light'),
+  url('fonts/open-sans-condensed-v12-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+  /* Set your content font stack here: */
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#layout {
+  //border: 1px solid red;
+}
+
+
+/* MENU-HEADER */
+
+#menu-header {
+  position: fixed;
+  height: 15%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 100;
+  //border: 1px solid yellow;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0 0 0 1.3em;
+  margin-top: 2em;
+  overflow: hidden;
+  //font-family: "Sans-Serif";
+  //letter-spacing: -1px;
+}
+
+h1 > a {
+  text-decoration: none;
+  color: #565d64;
+}
+
+
+/* MAIN-HEADER */
+
+#main-header {
+  position: fixed;
+  height: 15%;
+  top: 0;
+  left: 25%;
+  background-color: white;
+  z-index: 100;
+  //border: 1px solid lightblue;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #565d64;
+  margin: 0;
+  margin-top: 2em;
+  //font-family: "Sans-Serif";
+  //letter-spacing: -1px;
+}
+
+
+/* MENU */
+
+#menu {
+  position: fixed;
+  top: 15%;
+  left: 0;
+  bottom: 0;
+  //border: 1px solid orange
+}
+
+#menu-list {
+  padding-left: 1.5em;
+  //border: 1px solid green;
+}
+
+.pure-menu-item {
+  font-size: 1.1em;
+  padding-bottom: .2em;
+  color: #565d64;
+}
+
+.pure-menu-link {
+  display: inline-block;
+  padding: 0;
+}
+
+    /* overwrites pure-menu-link:hover defaults */
+    .pure-menu-link:hover {
+      background-color: white;
+    }
+
+    .menu-selected {
+      color: #af3c3c !important;
+    }
+
+    .pure-menu-link:active {
+      //pointer-events: none;
+      //user-select: none;
+    }
+
+#nesting-li > a > span {
+  position: relative;
+  top: -3px;
+  left: 5px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+    #nesting-li > a > span.active {
+      transform: rotate(180deg);
+      top: -1px;
+      //transition: all .2s;
+    }
+
+/* nested menu */
+
+.nested-menu {
+  list-style-type: none;
+  //position: relative;
+  padding: 0;
+  //margin-left: 12%;
+  //top: -1.4em;
+  //border: 1px solid black;
+}
+
+.nested-item {
+  position: relative;
+  top: 0;
+  left: 5%;
+  //border: 1px solid red;
+}
+
+.nested-link {
+  color: #565d64;
+  text-decoration: none;
+}
+
+
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+*/
+
+@media (max-width: 1024px) {
+
+  #menu-header {
+    //height: 10%; /*new*/
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+    //margin-top: .5em; /*new*/
+  }
+
+  #main-header {
+    display: none;
+  }
+
+  #menu {
+    left: -35%;
+    width: 0;
+  }
+
+      #menu.active {
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        background-color: white;
+        text-align: center;
+        transition: background-color .5s;
+      }
+
+  #menu-list {
+    padding-left: 0;
+  }
+
+  .nested-item {
+    left: 0;
+  }
+
+  #main {
+    left: 0;
+    text-align: center;
+  }
+
+  /* THE HAMBURGER */
+  #hamburger {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: #565d64;
+    padding: 10px; /*era 10*/
+  }
+
+  /* Just a quick hamburger */
+  #hamburger span {
+    display: block;
+    position: relative;
+    top: 2px;
+    width: 30px;
+    height: 3px;
+    margin-bottom: 5px;
+    background: white;
+    border-radius: 3px;
+    z-index: 1001;
+    text-align: center;
+  }
+
+} /* END @media*/
